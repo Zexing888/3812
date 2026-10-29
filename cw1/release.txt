@@ -1,0 +1,29 @@
+Warning, results might be unstable:
+* CPU frequency scaling enabled: CPU 0 between 800.0 and 2,300.0 MHz
+* CPU governor is 'schedutil' but should be 'performance'
+
+Recommendations
+* Use 'pyperf system tune' before benchmarking. See https://github.com/psf/pyperf
+Note: perf_event_open failed, so the ins/op, cyc/op, IPC, bra/op and miss% columns are missing.
+This is usually a container or VM without virtualized performance counters, or
+/proc/sys/kernel/perf_event_paranoid being too restrictive.
+
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|                6.35 |      157,532,486.85 |    5.1% |      0.01 | :wavy_dash: `inverse 2` (Unstable with ~91,145.6 iters. Increase `minEpochIterations` to e.g. 911456)
+|                1.50 |      667,971,413.29 |    5.8% |      0.01 | :wavy_dash: `multiply 2` (Unstable with ~732,957.7 iters. Increase `minEpochIterations` to e.g. 7329577)
+|               62.91 |       15,895,552.06 |    9.6% |      0.01 | :wavy_dash: `inverse 3` (Unstable with ~14,821.3 iters. Increase `minEpochIterations` to e.g. 148213)
+|               20.35 |       49,149,032.99 |    4.8% |      0.01 | `multiply 3`
+|               17.91 |       55,838,988.48 |    8.4% |      0.01 | :wavy_dash: `inverse 4` (Unstable with ~58,833.4 iters. Increase `minEpochIterations` to e.g. 588334)
+|               17.23 |       58,021,686.30 |   17.4% |      0.01 | :wavy_dash: `multiply 4` (Unstable with ~60,215.6 iters. Increase `minEpochIterations` to e.g. 602156)
+|              598.34 |        1,671,286.45 |   20.7% |      0.01 | :wavy_dash: `inverse 8` (Unstable with ~2,106.8 iters. Increase `minEpochIterations` to e.g. 21068)
+|               72.70 |       13,754,926.70 |   11.6% |      0.01 | :wavy_dash: `multiply 8` (Unstable with ~16,369.8 iters. Increase `minEpochIterations` to e.g. 163698)
+|            5,830.13 |          171,522.63 |   15.3% |      0.01 | :wavy_dash: `inverse 16` (Unstable with ~170.6 iters. Increase `minEpochIterations` to e.g. 1706)
+|              361.61 |        2,765,433.38 |    9.2% |      0.01 | :wavy_dash: `multiply 16` (Unstable with ~2,990.1 iters. Increase `minEpochIterations` to e.g. 29901)
+|           42,861.37 |           23,331.03 |   16.1% |      0.01 | :wavy_dash: `inverse 32` (Unstable with ~27.0 iters. Increase `minEpochIterations` to e.g. 270)
+|            3,090.75 |          323,545.97 |   17.1% |      0.01 | :wavy_dash: `multiply 32` (Unstable with ~362.5 iters. Increase `minEpochIterations` to e.g. 3625)
+|          377,330.33 |            2,650.20 |   35.3% |      0.01 | :wavy_dash: `inverse 64` (Unstable with ~3.0 iters. Increase `minEpochIterations` to e.g. 30)
+|           26,869.07 |           37,217.52 |    3.9% |      0.01 | `multiply 64`
+|          895,312.00 |            1,116.93 |    1.6% |      0.01 | `inverse 100`
+|          144,202.17 |            6,934.71 |   17.3% |      0.01 | :wavy_dash: `multiply 100` (Unstable with ~6.1 iters. Increase `minEpochIterations` to e.g. 61)
